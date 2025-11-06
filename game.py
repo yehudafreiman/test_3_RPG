@@ -29,8 +29,11 @@ class Game:
                     current_attacker = monster
                 else:
                     current_attacker = player
+                print(f"current attacker -> {current_attacker.name}")
 
                 # attack
+
+
 
             else:
                 print("End!")
@@ -41,13 +44,15 @@ class Game:
 
 
     def show_menu(self):
-        user_choice = input("Enter fight or quit: ")
-        if user_choice == "fight":
-            return True
-        if user_choice == "quit":
-            return False
-        else:
-            print(f"Invalid input try again {Game.show_menu(self)}")
+        while True:
+            user_choice = input("Enter fight or quit: ")
+            if user_choice == "fight":
+                return True
+            if user_choice == "quit":
+                return False
+            else:
+                print(f"Invalid input try again")
+                continue
 
     def create_player(self):
         player = Player("Harry Potter")
