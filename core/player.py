@@ -16,7 +16,7 @@ class Player:
             self.power += 2
 
     def speak(self) -> str:
-        return f"{self.name} say bla"
+        return f"Hi there! My name is {self.name}, I'm a player now"
 
     def attack(self):
         pass
