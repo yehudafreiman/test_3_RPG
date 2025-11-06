@@ -1,20 +1,40 @@
-from random import randint
+from random import randint, choice
+from core.player import Player
+from core.orc import Orc
+from core.goblin import Goblin
 
-def start():
-    pass
+class Game:
+
+    def start(self):
+        pass
+
+    def show_menu(self):
+        user_choice = input("Enter 'fight' or 'quit'")
+        return user_choice
+
+    def create_player(self):
+        player = Player("Harry Potter")
+        return player
 
 
-def show_menu():
-    pass
+    def choose_random_monster(self):
+        monster = choice(["Orc", "Goblin"])
+        if monster == Orc:
+            monster = Orc("Charizard")
+        else:
+            monster = Goblin("Alakazam")
+        return monster
 
-def create_player():
-    pass
+    def battle(self,player, monster):
+        pass
 
-def choose_random_monster():
-    pass
+    def roll_dice(self,sides):
+        if sides == 6:
+            result = randint(0, 6)
+        else:
+            result = randint(0, 20)
 
-def battle(player, monster):
-    pass
 
-def roll_dice(sides):
-    pass
+
+
+
