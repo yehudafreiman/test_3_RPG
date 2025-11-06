@@ -24,17 +24,45 @@ class Game:
                 print(f"monster result roll -> {monster_roll}")
 
                 if player_roll > monster_roll:
-                    current_attacker = player
+                    attacker = player
+                    attacked = monster
                 elif player_roll < monster_roll:
-                    current_attacker = monster
+                    attacker = monster
+                    attacked = player
                 else:
-                    current_attacker = player
-                print(f"current attacker -> {current_attacker.name}")
+                    attacker = player
+                    attacked = monster
+                print(f"current attacker -> {attacker.name}")
 
                 # attack
+                while True:
+                    attacker_roll = Game.roll_dice(self,20)
+                    attacker_roll += attacker.speed
+                    if attacker_roll > attacked.armor_rating:
+                        print("Hit!")
 
+                        # damage
+                        damage = Game.roll_dice(self, 6)
+                        damage += attacker.power
+                        if attacker == monster:
+                            if attacker.weapon == "Knife":
+                                damage *= 5
+                            elif attacker.weapon == "Sword":
+                                damage *= 1
+                            else:
+                                damage *= 1.5
+                        attacked.hp -= damage
+                        print(f"current attacked hp -> {attacked.hp}")
 
-
+                        # state
+                        if attacked.hp <= 0:
+                            print(f"{attacked.name} is dead!, {attacker.name} win!")
+                            print("Game over!")
+                            exit()
+                    else:
+                        print("Miss!")
+                        attacker, attacked = attacked, attacker
+                        continue
             else:
                 print("End!")
                 exit()
