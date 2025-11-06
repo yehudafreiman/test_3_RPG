@@ -83,7 +83,7 @@ class Game:
                 continue
 
     def create_player(self):
-        player = Player("Harry Potter")
+        player = Player("Pikachu")
         return player
 
     def choose_random_monster(self):
