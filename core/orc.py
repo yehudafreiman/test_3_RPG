@@ -11,7 +11,7 @@ class Orc:
         self.weapon = choice(["Knife","Sword","Ax"])
 
     def speak(self) -> str:
-        return f"The {self.type} {self.name} say bla bla"
+        return f"Hi there! My name is {self.name}, I'm kind of a monster {self.type}"
 
     def attack(self):
         pass
